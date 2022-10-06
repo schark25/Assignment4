@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<title>Joe's Hot Dogs</title>
+</head>
+<body>
+	<h1>Joe's Hot Dog Stand!</h1>
+	<h2>The finest hot dogs in all of America</h2>
+	<div class = "heading">Your order comes to:</div>
+	
+	<script>
+	var discount = 0;
+	var numHotDogs = prompt("How many orders of hot dogs do you want", 0);
+	if (numHotDogs == null) {
+		numHotDogs = 0;
+	}
+	var numFrenchFries = prompt("how many orders of french fries do you want?", 0);
+	if (numFrenchFries == null) {
+		numFrenchFries = 0;
+	}
+	var numSodas = prompt("How many sodas would you like?", 0);
+	if (numSodas == null) {
+		numSodas = 0;
+	}
+	var hotDogTotalCost = (Math.round(numHotDogs * 4.25*100)/100);
+	var frenchFryTotalCost = (Math.round(numFrenchFries * 2.6*100)/100);
+	var sodaTotalCost = (Math.round(numSodas *1.5*100)/100);
+	var subtotal = hotDogTotalCost +
+				   frenchFryTotalCost +
+		           sodaTotalCost;
+	if (subtotal >= 20) {
+		discount = Math.round((.1 * subtotal*100))/100;
+	}
+	var tax = Math.round((((subtotal - discount) * .0625)*100))/100;
+	var finalTotal = Math.round((subtotal - discount + tax)*100)/100;
+	document.writeln("You ordered " + numHotDogs + " hot dogs, totaling $" + hotDogTotalCost);
+	document.write("<br/>")
+	document.writeln("You ordered " + numFrenchFries + " french fries, totaling $" + frenchFryTotalCost);
+	document.write("<br/>")
+	document.writeln("You ordered " + numSodas + " sodas, totaling $" + sodaTotalCost);
+	document.write("<br/>")
+	document.writeln("Your subtotal, before tax and discounts is: $" + subtotal);
+	document.write("<br/>")
+	if (discount != 0) {
+		document.writeln("Your 10% discount totalled to: $" + discount);
+		document.write("<br/>")
+	}
+	document.writeln("Sales tax is: $" + tax);
+	document.write("<br/>")
+	document.writeln("Your final total is: $" + finalTotal);
+	</script>
+</body>
+</html>
